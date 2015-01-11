@@ -46,7 +46,7 @@ import "joelpurra/jq-bugfix-jq-552" as BugfixJq552;
 # BugfixJq552::attemptFixJoin: Single string to two empty parts.
 [ "", "" ] | BugfixJq552::attemptFixJoin("a") # "a"
 
-# BugfixJq552::attemptFixJoin: Two parts x. SHOWS DEBUG OUTPUT.
+# BugfixJq552::attemptFixJoin: Two parts x.
 [ "", "yz" ] | BugfixJq552::attemptFixJoin("x") # "xyz"
 ```
 
