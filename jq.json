@@ -1,6 +1,6 @@
 {
     "name": "bugfix-jq-552",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Attempt to detect and fix inconsistencies in jq's split/join behavior. See jq's issue #552.",
     "homepage": "https://github.com/joelpurra/jq-bugfix-jq-552",
     "bugs": "https://github.com/joelpurra/jq-bugfix-jq-552/issues",
