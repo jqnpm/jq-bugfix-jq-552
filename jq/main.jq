@@ -18,7 +18,8 @@ def debugSplitOutput($splitter; $output):
 	| sumOfLengthsInArray as $sumOfLengthsInArray
 	| ($sumOfLengthsInArray + (($outputLength - 1) * $splitterLength)) as $combinedOutputLength
 	| ($combinedOutputLength - $inputLength) as $difference
-	| if $difference != 0 then
+	# List all detectable inconsistency indicators here.
+	| if ($splitter | Stress::isEmpty) and $outputLength == 2 then
 		{
 			input: $input,
 			inputLength: $inputLength,
@@ -52,11 +53,9 @@ def warningSplit($splitter):
 
 def fixSplitOutput($debugged):
 	. as $originalOutput
-	| if $debugged.difference == -1 then
-		[
-			$originalOutput[],
-			""
-		]
+	# One if-case per fix.
+	| if ($debugged.splitter | Stress::isEmpty) and $debugged.outputLength == 2 then
+		$originalOutput[0:1]
 	else
 		$originalOutput
 	end;
