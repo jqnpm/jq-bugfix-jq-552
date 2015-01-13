@@ -23,10 +23,8 @@ import "joelpurra/jq-bugfix-jq-552" as BugfixJq552;
 # These tests fail for vanilla split/join, but they are detected and shows debug output.
 #
 # BugfixJq552::warningSplit: Single string to two empty parts. SHOWS DEBUG OUTPUT.
-"a" | BugfixJq552::warningSplit("a") # Expected [ "", "" ], Actually [ "" ]
-
-# BugfixJq552::warningSplit: Single string to two parts z. SHOWS DEBUG OUTPUT.
-"xyz" | BugfixJq552::warningSplit("z") # [ Expected "xy", "" ], Actually [ "xy" ]
+#
+# SPLIT DOCUMENTATION REMOVED as it's outdated - check the tests. Sorry!
 
 # BugfixJq552::warningJoin: Single string to two empty parts. SHOWS DEBUG OUTPUT.
 [ "", "" ] | BugfixJq552::warningJoin("a") # Expected "a", Actually ""
@@ -37,11 +35,7 @@ import "joelpurra/jq-bugfix-jq-552" as BugfixJq552;
 
 # Instead use the functions which attempt to fix these inconsistencies.
 #
-# BugfixJq552::attemptFixSplit: Single string to two empty parts.
-"a" | BugfixJq552::attemptFixSplit("a") # [ "", "" ]
-
-# BugfixJq552::attemptFixSplit: Single string to two parts z.
-"xyz" | BugfixJq552::attemptFixSplit("z") # [ "xy", "" ]
+# SPLIT DOCUMENTATION REMOVED as it's outdated - check the tests. Sorry!
 
 # BugfixJq552::attemptFixJoin: Single string to two empty parts.
 [ "", "" ] | BugfixJq552::attemptFixJoin("a") # "a"
