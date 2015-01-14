@@ -4,7 +4,7 @@
 
 # [jq-bugfix-jq-552](https://github.com/joelpurra/jq-bugfix-jq-552)
 
-Attempt to detect and fix inconsistencies in jq's split/join behavior. See [jq's issue #552 Split output array length inconsistency](https://github.com/stedolan/jq/issues/552).
+Attempt to detect and fix inconsistencies in jq's ~~split/~~join behavior. See [jq's issue #552 Split output array length inconsistency](https://github.com/stedolan/jq/issues/552).
 
 This is a package for the command-line JSON processor [`jq`](https://stedolan.github.io/jq/). Install the package in your jq project/package directory with [`jqnpm`](https://github.com/joelpurra/jqnpm):
 
@@ -20,22 +20,17 @@ jqnpm install joelpurra/jq-bugfix-jq-552
 ```jq
 import "joelpurra/jq-bugfix-jq-552" as BugfixJq552;
 
-# These tests fail for vanilla split/join, but they are detected and shows debug output.
+# These tests fail for vanilla join, but they are detected and shows debug output.
 #
-# BugfixJq552::warningSplit: Single string to two empty parts. SHOWS DEBUG OUTPUT.
-#
-# SPLIT DOCUMENTATION REMOVED as it's outdated - check the tests. Sorry!
-
-# BugfixJq552::warningJoin: Single string to two empty parts. SHOWS DEBUG OUTPUT.
+# BugfixJq552::warningJoin: Single string to two empty parts.
 [ "", "" ] | BugfixJq552::warningJoin("a") # Expected "a", Actually ""
 
-# BugfixJq552::warningJoin: Two parts x. SHOWS DEBUG OUTPUT.
+# BugfixJq552::warningJoin: Two parts x.
 [ "", "yz" ] | BugfixJq552::warningJoin("x") # Expected "xyz", Actually "yz"
 
 
 # Instead use the functions which attempt to fix these inconsistencies.
 #
-# SPLIT DOCUMENTATION REMOVED as it's outdated - check the tests. Sorry!
 
 # BugfixJq552::attemptFixJoin: Single string to two empty parts.
 [ "", "" ] | BugfixJq552::attemptFixJoin("a") # "a"
