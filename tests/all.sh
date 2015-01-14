@@ -47,9 +47,19 @@ sumOfLengthsInArray
 EOF
 
 read -d '' fourLineTests_split <<-'EOF' || true
-__function__: Empty strings.
+__function__: Empty string split with empty string.
 ""
 __function__("")
+[]
+
+__function__: Empty string split with a.
+""
+__function__("a")
+[]
+
+__function__: Empty string split with abc.
+""
+__function__("abc")
 []
 
 __function__: Single repeated string split with empty string.

@@ -19,9 +19,9 @@ def debugJoinOutput($joints; $output):
 	| ($joints | length) as $jointsLength
 	| $output
 	| length as $outputLength
-	| ($sumOfLengthsInArray + (($inputLength - 1) * $jointsLength)) as $combinedInputLength
+	| ($sumOfLengthsInArray + (([0, $inputLength - 1] | max) * $jointsLength)) as $combinedInputLength
 	| ($combinedInputLength - $outputLength) as $difference
-	| if $difference != 0 then
+	| if $input == [] and ($output | type) == "null" then
 		{
 			input: $input,
 			inputLength: $inputLength,
@@ -53,23 +53,17 @@ def warningJoin($joints):
 	| ($input | debugJoin($joints; $output))
 	| $output;
 
-def fixJoinInput:
-	map(
-		if Stress::isEmpty then
-			fixJoinInputReallyLongString
-		else
-			.
-		end
-	);
-
-def fixJoinOutput:
-	Stress::remove(fixJoinInputReallyLongString);
+def fixJoinOutput($input; $joints):
+	if $input == [] and type == "null" then
+		""
+	else
+		.
+	end;
 
 def attemptFixJoin($joints):
 	. as $input
-	| fixJoinInput
 	| join($joints)
-	| fixJoinOutput
+	| fixJoinOutput($input; $joints)
 	| . as $output
 	| ($input | debugJoin($joints; $output))
 	| $output;
