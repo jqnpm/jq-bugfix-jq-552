@@ -52,15 +52,30 @@ __function__: Empty strings.
 __function__("")
 []
 
+__function__: Single repeated string split with empty string.
+"aaa"
+__function__("")
+[ "a", "a", "a" ]
+
 __function__: Single string split with empty string.
 "a"
 __function__("")
 [ "a" ]
 
+__function__: Single long string split with empty string.
+"abc"
+__function__("")
+[ "a", "b", "c" ]
+
 __function__: Single string to two empty parts.
 "a"
 __function__("a")
 [ "", "" ]
+
+__function__: Single long string to four empty parts.
+"aaa"
+__function__("a")
+[ "", "", "", "" ]
 
 __function__: Single string to two parts x.
 "xyz"
@@ -77,6 +92,21 @@ __function__: Single string to two parts z.
 __function__("z")
 [ "xy", "" ]
 
+__function__: Single repeated string to two parts x.
+"xyzxyzxyz"
+__function__("x")
+[ "", "yz", "yz", "yz" ]
+
+__function__: Single repeated string to two parts y.
+"xyzxyzxyz"
+__function__("y")
+[ "x", "zx", "zx", "z" ]
+
+__function__: Single repeated string to two parts z.
+"xyzxyzxyz"
+__function__("z")
+[ "xy", "xy", "xy", "" ]
+
 __function__: Single longer string to two parts abc.
 "abcdefghi"
 __function__("abc")
@@ -91,6 +121,21 @@ __function__: Single longer string to two parts ghi.
 "abcdefghi"
 __function__("ghi")
 [ "abcdef", "" ]
+
+__function__: Single longer repeated string to two parts abc.
+"abcdefghiabcdefghiabcdefghi"
+__function__("abc")
+[ "", "defghi", "defghi", "defghi" ]
+
+__function__: Single longer repeated string to two parts def.
+"abcdefghiabcdefghiabcdefghi"
+__function__("def")
+[ "abc", "ghiabc", "ghiabc", "ghi" ]
+
+__function__: Single longer repeated string to two parts ghi.
+"abcdefghiabcdefghiabcdefghi"
+__function__("ghi")
+[ "abcdef", "abcdef", "abcdef", "" ]
 EOF
 
 function swapTestLine2and4 {
