@@ -163,8 +163,6 @@ function testAllFourLineTests () {
 	echo "$fourLineTests_sumOfLengthsInArray" | runAllFourLineTests
 	echo "$fourLineTests_split" | sed 's/__function__/split/g' | runAllFourLineTests
 	echo "$fourLineTests_split" | swapTestLine2and4 | sed 's/__function__/join/g' | runAllFourLineTests
-	echo "$fourLineTests_split" | swapTestLine2and4 | sed 's/__function__/warningJoin/g' | runAllFourLineTests
-	echo "$fourLineTests_split" | swapTestLine2and4 | sed 's/__function__/attemptFixJoin/g' | runAllFourLineTests
 }
 
 

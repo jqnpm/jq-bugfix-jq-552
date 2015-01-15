@@ -13,9 +13,7 @@
         "type": "git",
         "url": "git://github.com/joelpurra/jq-bugfix-jq-552.git"
     },
-    "dependencies": {
-        "joelpurra/jq-stress": "^0.1.2"
-    },
+    "dependencies": {},
     "engines": {
         "jq": "^1.5.0",
         "jqnpm": "^1.0.0"
