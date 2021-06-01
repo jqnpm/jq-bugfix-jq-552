@@ -6,6 +6,14 @@
 
 This repository is now made obsolete by upstream fixes in jq, in commits after [`jq-1.5rc1-12-gcca3e92`](https://github.com/stedolan/jq/commit/cca3e92854db2a8d8059cf31bb1c74657065024f).
 
+
+
+> ## ⚠️ This project has been archived
+>
+> No future updates are planned. Feel free to continue using it, but expect no support.
+
+
+
 ~~Attempt to detect and fix inconsistencies in jq's split/join behavior. See [jq's issue #552 Split output array length inconsistency](https://github.com/stedolan/jq/issues/552) and [jq's issue #668 join/1 should respect empty strings in input](https://github.com/stedolan/jq/issues/668).~~
 
 This is a package for the command-line JSON processor [`jq`](https://stedolan.github.io/jq/). Install the package in your jq project/package directory with [`jqnpm`](https://github.com/joelpurra/jqnpm):
